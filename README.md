@@ -1,45 +1,27 @@
-PAELLA PLAYER INSTALLATION
+Paella Player
+=============
+The Paella Player is a multistream video player capable of playing multiple audio & video streams synchronously and supporting a number of user plugins. It is specially designed for lecture recordings, like Polimedia pills or Matterhorn Lectures.
+
+Main characteristics:
+- Multi stream video player
+- Completely based in HTML5 and Javascript
+- Can play audio from any of the two videos, mute any of them or mix both
+- Resize position/size of video windows while playing
+- Play/Pause/30 seconds back controls
+- Jump anywhere in the video keeping both tracks in sync
+- Can handle progressive download and pseudostreaming servers
+- Easily change the relative position of presenter and presentation windows
+- Native Fullscreen version
+- .Publish to. buttons for Facebook and Twitter
+- Easy skinning
+- Easy install. Just get the code, point to your server and run (if you have mp4/ogg videos available)
+- Compatible with Opencast Matterhorn
+
+
+Paella Player Installation
 ==========================
-
-NOTE: In the following instructions, $MH_HOME represents the path where the Matterhorn source has been downloaded, and $FELIX_HOME the path where Felix is installed.
-
-
-PLEASE READ BEFORE INSTALLING
------------------------------
-
-- In multi-machine installations, the player must be installed in the 'engage' server only.
-- Paella Player requires a browser with HTML5 support and compatible with the format of the distributed videos. Please refer to your browser's documentation to see the formats it supports.
-- By default, Matterhorn does NOT encode and distribute videos in a format suitable for HTML5 --specific workflow and encoding profiles are required. The Paella source package includes suitable workflow definitions and encoding profiles in the resources folder. Please note that:
-    * These profiles encode the distributed videos to the H264/MP4 format, which is patent encumbered. Please be aware of the restrictions to use videos encoded in such formats.
-    * FFMPEG needs to be compiled with H264/MP4 support. In multi-machine installations, this applies to every worker machine.
-      - You can check the formats currently supported by your FFMPEG by running: ffmpeg -formats and ffmpeg -codecs.
-      - A guide to enable FFMPEG support for several formats, including H264, can be found here: https://ffmpeg.org/trac/ffmpeg/wiki/UbuntuCompilationGuide
-    * To install the new workflow, simply copy the `resources/felix/conf/workflows/html5.xml` file into `$FELIX_HOME/conf/workflows`.
-      - In multi-machine installations, this has to be done in the 'admin' server only.
-    * To install the new encoding profiles, copying the `resources/felix/conf/encoding/html5-profiles.properties` file into `$FELIX_HOME/conf/encoding`.
-      - In multi-machine installations, this has to be done in every 'worker' machine.
-    * Alternatively, you can create your custom workflow and encoding profiles for distributing video in other formats compatible with HTML5. The process is described in the Matterhorn documentation:
-      http://opencast.jira.com/wiki/display/MHDOC/Release+Notes . The recommendations above also apply to any custom workflows and encoding profiles.
-
-
-
-INSTALLATION INSTRUCTIONS
--------------------------
-
 1. Check your Matterhorn version by running the following command
 
     `$ grep -m 1 '<version>' $MH_HOME/pom.xml`
 
-2. Copy the bundle to your matterhorn installation.
-
-    `$ cp -r $MH_VERSION/paella-engage-ui $MH_HOME/modules`
-
-3. Go to 'paella-engage-ui' folder.
-
-    `$ cd $MH_HOME/modules/paella-engage-ui`
-
-4. Build the 'paella-engage-ui' bundle by running the following command:
-
-    `$ mvn clean install -DdeployTo=$FELIX_HOME/matterhorn`
-
-5. The Paella Player can be accessed at http://\<yourengageserverurl\>:\<yourport\>/paella/ui
+2. Go to that version folder and follow the instructions.
